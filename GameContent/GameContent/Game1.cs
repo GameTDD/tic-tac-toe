@@ -13,6 +13,8 @@ namespace GameContent
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+		public Color bgColor = Color.White;
+		GeneralAtributes gameAttributes;
 
 		public Game1()
 		{
@@ -29,7 +31,7 @@ namespace GameContent
 		protected override void Initialize()
 		{
 			// TODO: Add your initialization logic here
-
+			gameAttributes = new GeneralAtributes();
 			base.Initialize();
 		}
 
@@ -70,7 +72,7 @@ namespace GameContent
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw(GameTime gameTime)
 		{
-			graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
+			graphics.GraphicsDevice.Clear(GeneralAtributes.BackgroungColor);
 
 			//TODO: Add your drawing code here
 

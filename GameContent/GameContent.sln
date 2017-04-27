@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameContent", "GameContent\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameContent.Test", "GameContent.Test\GameContent.Test.csproj", "{19832F23-5B44-4FB3-A51C-D52D78FDA12E}"
 EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Utils", "Utils\Utils.fsproj", "{AD2926C5-80BF-49EE-BA64-4E3BBE181625}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +21,9 @@ Global
 		{19832F23-5B44-4FB3-A51C-D52D78FDA12E}.Debug|x86.Build.0 = Debug|Any CPU
 		{19832F23-5B44-4FB3-A51C-D52D78FDA12E}.Release|x86.ActiveCfg = Release|Any CPU
 		{19832F23-5B44-4FB3-A51C-D52D78FDA12E}.Release|x86.Build.0 = Release|Any CPU
+		{AD2926C5-80BF-49EE-BA64-4E3BBE181625}.Debug|x86.ActiveCfg = Debug|x86
+		{AD2926C5-80BF-49EE-BA64-4E3BBE181625}.Debug|x86.Build.0 = Debug|x86
+		{AD2926C5-80BF-49EE-BA64-4E3BBE181625}.Release|x86.ActiveCfg = Release|x86
+		{AD2926C5-80BF-49EE-BA64-4E3BBE181625}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal

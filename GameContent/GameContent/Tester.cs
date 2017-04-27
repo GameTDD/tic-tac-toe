@@ -9,7 +9,7 @@ namespace GameContent
 
 		public bool isBool() 
 		{
-			return true;
+			return false;
 		}
 	}
 }
