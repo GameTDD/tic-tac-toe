@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Handler.fs" />
     <None Include="packages.config" />
+    <Compile Include="Regions.fs" />
   </ItemGroup>
   <Import Project="$(FSharpTargetsPath)" />
 </Project>

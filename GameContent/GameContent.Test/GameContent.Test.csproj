@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="GameSceneTest\GameTest.cs" />
     <Compile Include="GameSceneTest\TestUtilsInput.cs" />
+    <Compile Include="GameSceneTest\GeometryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

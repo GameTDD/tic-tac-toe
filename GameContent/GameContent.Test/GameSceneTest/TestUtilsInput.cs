@@ -24,7 +24,9 @@ namespace GameContent.Test
 		[Test()]
 		public void TesterShouldReturnTrueWhenIsBool()
 		{
-			Assert.That(Handlers.Input.IsMousePressed(mouseButtonState), Is.True);
+			MouseState auxPreviousButtonState = new MouseState(0,0, 0, ButtonState.Pressed, ButtonState.Released,
+											 ButtonState.Released, ButtonState.Released, ButtonState.Released);	
+			Assert.That(Handlers.Input.IsMousePressed(mouseButtonState, auxPreviousButtonState), Is.True);
 		}
 
 		[Test()]
