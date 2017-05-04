@@ -14,15 +14,44 @@ namespace GameContent.Test
 		[TestFixtureSetUp()]
 		public void GeometryTestSetUp()
 		{
-			mouseState = new MouseState(50,60, 0, ButtonState.Pressed, ButtonState.Released,
+			mouseState = new MouseState(45,60, 0, ButtonState.Pressed, ButtonState.Released,
 											 ButtonState.Released, ButtonState.Released, ButtonState.Released);
-			rect = new Rectangle(30, 30, 40, 40);
+			rect = new Rectangle(30, 30, 20, 40);
 		}
 
 		[Test()]
-		public void TestIfXisInRectangle()
+		public void TestIfMousePositionIsInRectangle()
 		{
-			Assert.That(Regions.GeometricFunctions.IsInReagion (mouseState.X, rect), Is.True);
+			Assert.That(Regions.GeometricFunctions.IsInReagion (mouseState.Position, rect), Is.True);
 		}
+
+		[Test()]
+		public void TestIfMousePositionXIsOutOfRectangle()
+		{
+			MouseState auxMouse = new MouseState(100, 60, 0, ButtonState.Pressed, ButtonState.Released,
+											 ButtonState.Released, ButtonState.Released, ButtonState.Released);
+			Assert.That(Regions.GeometricFunctions.IsInReagion(auxMouse.Position, rect), Is.False);
+		}
+
+		[Test()]
+		public void TestIfMousePositionYIsOutOfRectangle()
+		{
+			MouseState auxMouse = new MouseState(45, 100, 0, ButtonState.Pressed, ButtonState.Released,
+									 ButtonState.Released, ButtonState.Released, ButtonState.Released);
+			Assert.That(Regions.GeometricFunctions.IsInReagion(auxMouse.Position, rect), Is.False);
+		}
+
+		[Test()]
+		public void TestIfCoordinateWithinLimits()
+		{
+			Assert.That(Regions.GeometricFunctions.IsBetweenLimits(5, 2, 10), Is.True);
+		}
+
+		[Test()]
+		public void TestIfCoordinateIsOutOfLimits()
+		{
+			Assert.That(Regions.GeometricFunctions.IsBetweenLimits(15, 2, 10), Is.False);
+		}
+
 	}
 }
