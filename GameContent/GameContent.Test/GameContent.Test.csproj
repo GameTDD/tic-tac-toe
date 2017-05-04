@@ -44,6 +44,7 @@
     <Compile Include="GameSceneTest\GameTest.cs" />
     <Compile Include="GameSceneTest\TestUtilsInput.cs" />
     <Compile Include="GameSceneTest\GeometryTest.cs" />
+    <Compile Include="GameObjectTest\TestRegionState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -60,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GameSceneTest\" />
+    <Folder Include="GameObjectTest\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

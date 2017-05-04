@@ -53,5 +53,12 @@ namespace GameContent.Test
 			Assert.That(Regions.GeometricFunctions.IsBetweenLimits(15, 2, 10), Is.False);
 		}
 
+		[Test()]
+		public void TestIfMouseClickedInRegion() 
+		{ 
+			MouseState prevState = new MouseState(120,120, 0, ButtonState.Released, ButtonState.Released,
+											 ButtonState.Released, ButtonState.Released, ButtonState.Released);
+			Assert.That(Regions.Interative.HasMouseClickedRegion(mouseState, prevState, rect), Is.True);
+		}
 	}
 }
