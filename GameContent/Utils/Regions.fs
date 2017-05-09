@@ -13,7 +13,7 @@ module GeometricFunctions =
     let IsInReagion (mouse: Point, rect: Microsoft.Xna.Framework.Rectangle) : bool =
         IsBetweenLimits(mouse.X, rect.Left, rect.Right) && IsBetweenLimits(mouse.Y, rect.Top, rect.Bottom)
 
-module Interative = 
+module Interactive = 
     let HasMouseClickedRegion (actualState: MouseState, prevState: MouseState, rect: Rectangle) : bool =
         if GeometricFunctions.IsInReagion(actualState.Position, rect) 
             && Handlers.Input.IsMouseClick(actualState, prevState) then

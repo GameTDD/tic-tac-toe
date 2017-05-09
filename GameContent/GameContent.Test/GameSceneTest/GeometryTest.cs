@@ -58,7 +58,7 @@ namespace GameContent.Test
 		{ 
 			MouseState prevState = new MouseState(120,120, 0, ButtonState.Released, ButtonState.Released,
 											 ButtonState.Released, ButtonState.Released, ButtonState.Released);
-			Assert.That(Regions.Interative.HasMouseClickedRegion(mouseState, prevState, rect), Is.True);
+			Assert.That(Regions.Interactive.HasMouseClickedRegion(mouseState, prevState, rect), Is.True);
 		}
 	}
 }

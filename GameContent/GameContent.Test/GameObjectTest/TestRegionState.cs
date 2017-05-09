@@ -15,17 +15,32 @@ namespace GameContent.Test
 		[TestFixtureSetUp()]
 		public void SetUpRegion()
 		{ 
-			currentState = new MouseState(60, 60, 0, ButtonState.Pressed, ButtonState.Released,
-								 ButtonState.Released, ButtonState.Released, ButtonState.Released);
-			previousState = new MouseState(44,44, 0, ButtonState.Released, ButtonState.Released,
-								 ButtonState.Released, ButtonState.Released, ButtonState.Released);
 			region = new Region(45, 45, 30, 30);
+			currentState = new MouseState(60, 60, 0, ButtonState.Pressed, ButtonState.Released,
+					 ButtonState.Released, ButtonState.Released, ButtonState.Released);
+			previousState = new MouseState(44,44, 0, ButtonState.Released, ButtonState.Released,
+		 			 ButtonState.Released, ButtonState.Released, ButtonState.Released);
 		}
 
 		[Test()]
 		public void TestIfRegionIsCreatedWith0() 
 		{
 			Assert.That(region.state, Is.EqualTo(0));
+		}
+
+		[Test()]
+		public void TestIfStateChangesTo1WhenClicked()
+		{ 
+			region.InteractWithRegionState(currentState, previousState);
+			Assert.That(region.state, Is.EqualTo(1));
+		}
+
+		[Test()]
+		public void TestIfStateDoesNotCHangeWhenAlreadyClicked()
+		{
+			region.state = -1;
+			region.InteractWithRegionState(currentState, previousState);
+			Assert.That(region.state, Is.EqualTo(-1));
 		}
 	}
 }
