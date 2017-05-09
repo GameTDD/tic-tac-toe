@@ -45,6 +45,7 @@
     <Compile Include="GameSceneTest\TestUtilsInput.cs" />
     <Compile Include="GameSceneTest\GeometryTest.cs" />
     <Compile Include="GameObjectTest\TestRegionState.cs" />
+    <Compile Include="GameObjectTest\BoardTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

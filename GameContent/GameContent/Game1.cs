@@ -15,6 +15,7 @@ namespace GameContent
 		SpriteBatch spriteBatch;
 		public Color bgColor = Color.White;
 		GeneralAtributes gameAttributes;
+		Board board;
 
 		public Game1()
 		{
@@ -32,6 +33,8 @@ namespace GameContent
 		{
 			// TODO: Add your initialization logic here
 			gameAttributes = new GeneralAtributes();
+			gameAttributes.GenerateTextures(graphics.GraphicsDevice);
+			board = new Board();
 			base.Initialize();
 		}
 
@@ -75,6 +78,9 @@ namespace GameContent
 			graphics.GraphicsDevice.Clear(GeneralAtributes.BackgroungColor);
 
 			//TODO: Add your drawing code here
+			spriteBatch.Begin(SpriteSortMode.Deferred);
+			board.Draw(spriteBatch);
+			spriteBatch.End(); 
 
 			base.Draw(gameTime);
 		}
