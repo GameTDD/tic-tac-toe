@@ -6,6 +6,8 @@ namespace GameContent
 {
 	public class BoardStateManager
 	{
+
+
 		public BoardStateManager()
 		{
 		}

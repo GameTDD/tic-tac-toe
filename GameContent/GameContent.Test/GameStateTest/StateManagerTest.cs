@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 using GameContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -56,6 +57,15 @@ namespace GameContent.Test
 			int idx = stateManager.ClickedRegion(gameBoard.regions, currentState, previousState);
 			stateManager.UpdateClickedRegionState(gameBoard.regions, idx);
 			Assert.That(gameBoard.regions[4].state, Is.EqualTo(1));
+		}
+
+		[Test()]
+		public void TestIfDifferentClickedRegionsHaveDiffStates() 
+		{
+			gameBoard.regions[3].InteractWithRegionState();
+			Assert.That(gameBoard.regions[3].state, Is.EqualTo(1));
+			gameBoard.regions[4].InteractWithRegionState();
+			Assert.That(gameBoard.regions[4].state, Is.EqualTo(-1));
 		}
 	}
 }
