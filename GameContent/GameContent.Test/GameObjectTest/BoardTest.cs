@@ -48,5 +48,26 @@ namespace GameContent.Test
 			Assert.That(gameBoard.lines[2].Size, Is.EqualTo(new Point(300, 10)));
 			Assert.That(gameBoard.lines[3].Size, Is.EqualTo(new Point(300, 10)));
 		}
+
+		[Test()]
+		public void TestIfBoardHas9Regions()
+		{
+			Assert.That(gameBoard.regions.Length, Is.EqualTo(9));
+		}
+
+		[Test()]
+		public void TestIfCenterRegionOverlapsLines()
+		{
+			Assert.That(HasOverlap(gameBoard.regions[4].rect, gameBoard.lines), Is.False);
+		}
+
+		public bool HasOverlap(Rectangle rect, Rectangle[] lines) {
+			for (int i = 0; i < 4; i++) {
+				if (rect.Intersects(lines[i])) {
+					return true;
+				}
+			}
+			return false;
+		}
 	}
 }

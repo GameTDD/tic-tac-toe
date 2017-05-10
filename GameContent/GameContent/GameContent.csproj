@@ -53,6 +53,7 @@
     <Compile Include="GeneralAtributes.cs" />
     <Compile Include="Objects\Region.cs" />
     <Compile Include="Objects\Board.cs" />
+    <Compile Include="StateManagers\BoardStateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />
@@ -102,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Objects\" />
+    <Folder Include="StateManagers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utils\Utils.fsproj">
