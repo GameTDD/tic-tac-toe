@@ -53,7 +53,8 @@ namespace GameContent.Test
 		[Test()]
 		public void TestIfClickedRegionHasChangedState()
 		{
-			stateManager.UpdateClickedRegionState(gameBoard.regions, currentState, previousState);
+			int idx = stateManager.ClickedRegion(gameBoard.regions, currentState, previousState);
+			stateManager.UpdateClickedRegionState(gameBoard.regions, idx);
 			Assert.That(gameBoard.regions[4].state, Is.EqualTo(1));
 		}
 	}

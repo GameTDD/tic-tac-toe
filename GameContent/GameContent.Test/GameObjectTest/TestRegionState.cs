@@ -31,7 +31,7 @@ namespace GameContent.Test
 		[Test()]
 		public void TestIfStateChangesTo1WhenClicked()
 		{ 
-			region.InteractWithRegionState(currentState, previousState);
+			region.InteractWithRegionState();
 			Assert.That(region.state, Is.EqualTo(1));
 		}
 
@@ -39,7 +39,7 @@ namespace GameContent.Test
 		public void TestIfStateDoesNotCHangeWhenAlreadyClicked()
 		{
 			region.state = -1;
-			region.InteractWithRegionState(currentState, previousState);
+			region.InteractWithRegionState();
 			Assert.That(region.state, Is.EqualTo(-1));
 		}
 	}

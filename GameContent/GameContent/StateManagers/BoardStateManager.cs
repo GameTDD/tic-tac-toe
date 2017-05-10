@@ -21,11 +21,9 @@ namespace GameContent
 			return -1;
 		}
 
-		public void UpdateClickedRegionState(Region[] regions, MouseState current, 
-		                                     MouseState prev) {
-			int idx = ClickedRegion(regions, current, prev);
+		public void UpdateClickedRegionState(Region[] regions, int idx) {
 			if (idx != -1) {
-				regions[idx].InteractWithRegionState(current, prev);
+				regions[idx].InteractWithRegionState();
 			}
 		}
 	}

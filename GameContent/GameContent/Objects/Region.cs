@@ -16,9 +16,9 @@ namespace GameContent
 			state = 0;
 		}
 
-		public void InteractWithRegionState(MouseState current, MouseState previous) 
+		public void InteractWithRegionState() 
 		{
-			if (Regions.Interactive.HasMouseClickedRegion(current, previous, rect) && !IsActive()) 
+			if (!IsActive()) 
 			{
 				state = 1;
 			}
