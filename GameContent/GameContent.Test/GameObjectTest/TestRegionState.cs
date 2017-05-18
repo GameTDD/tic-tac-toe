@@ -43,5 +43,19 @@ namespace GameContent.Test
 			region.InteractWithRegionState();
 			Assert.That(region.state, Is.EqualTo(-1));
 		}
+
+		[Test()]
+		public void TestStringResponseForState1()
+		{
+			region.state = 1;
+			Assert.That(region.GetSymbol(), Is.EqualTo("X"));
+		}
+
+		[Test()]
+		public void TestStringResponseForStateMinus1()
+		{
+			region.state = -1;
+			Assert.That(region.GetSymbol(), Is.EqualTo("O"));
+		}
 	}
 }

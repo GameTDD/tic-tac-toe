@@ -33,5 +33,10 @@ namespace GameContent
 			}
 			return false;
 		}
+
+		public string GetSymbol() 
+		{
+			return "X";
+		}
 	}
 }
