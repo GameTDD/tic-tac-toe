@@ -16,6 +16,7 @@ namespace GameContent
 		public Color bgColor = Color.White;
 		GeneralAtributes gameAttributes;
 		Board board;
+		SpriteFont font;
 
 		public Game1()
 		{
@@ -34,7 +35,6 @@ namespace GameContent
 			// TODO: Add your initialization logic here
 			gameAttributes = new GeneralAtributes();
 			gameAttributes.GenerateTextures(graphics.GraphicsDevice);
-			board = new Board();
 			base.Initialize();
 		}
 
@@ -46,6 +46,8 @@ namespace GameContent
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
+			font = Content.Load<SpriteFont>("font");
+			board = new Board();
 
 			//TODO: use this.Content to load your game content here 
 		}

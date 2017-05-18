@@ -20,7 +20,8 @@ namespace GameContent
 		{
 			if (!IsActive()) 
 			{
-				state = 1;
+				state = BoardStateManager.playerState;
+				BoardStateManager.UpdatePlayerState();
 			}
 		}
 

@@ -3,6 +3,7 @@ using System;
 using GameContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GameContent.Test
 {
@@ -59,13 +60,23 @@ namespace GameContent.Test
 			Assert.That(gameBoard.regions[4].state, Is.EqualTo(1));
 		}
 
+		//This test is order dependent
 		[Test()]
 		public void TestIfDifferentClickedRegionsHaveDiffStates() 
 		{
 			gameBoard.regions[3].InteractWithRegionState();
-			Assert.That(gameBoard.regions[3].state, Is.EqualTo(1));
+			Assert.That(gameBoard.regions[3].state, Is.EqualTo(-1));
 			gameBoard.regions[4].InteractWithRegionState();
-			Assert.That(gameBoard.regions[4].state, Is.EqualTo(-1));
+			Assert.That(gameBoard.regions[4].state, Is.EqualTo(1));
+		}
+
+		[Test()]
+		public void TestIfPlayerStateUpdates() { 
+			BoardStateManager.playerState = 1;
+			BoardStateManager.UpdatePlayerState();
+			Assert.That(BoardStateManager.playerState, Is.EqualTo(-1));
+			BoardStateManager.UpdatePlayerState();
+			Assert.That(BoardStateManager.playerState, Is.EqualTo(1));
 		}
 	}
 }

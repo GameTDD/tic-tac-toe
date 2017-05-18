@@ -7,9 +7,11 @@ namespace GameContent
 	public class BoardStateManager
 	{
 
+		public static int playerState { get; set;} 
 
 		public BoardStateManager()
 		{
+			playerState = 1;
 		}
 
 		public int ClickedRegion(Region[] regions, MouseState current, MouseState prev)
@@ -27,6 +29,10 @@ namespace GameContent
 			if (idx != -1) {
 				regions[idx].InteractWithRegionState();
 			}
+		}
+
+		public static void UpdatePlayerState() {
+			playerState = -playerState;
 		}
 	}
 }

@@ -30,7 +30,8 @@ namespace GameContent.Test
 
 		[Test()]
 		public void TestIfStateChangesTo1WhenClicked()
-		{ 
+		{
+			BoardStateManager.playerState = 1;
 			region.InteractWithRegionState();
 			Assert.That(region.state, Is.EqualTo(1));
 		}
