@@ -15,7 +15,7 @@ namespace GameContent.Test
 		[TestFixtureSetUp()]
 		public void SetUpRegion()
 		{ 
-			region = new Region(45, 45, 30, 30);
+			region = new Region(45, 45, 30, 30, null);
 			currentState = new MouseState(60, 60, 0, ButtonState.Pressed, ButtonState.Released,
 					 ButtonState.Released, ButtonState.Released, ButtonState.Released);
 			previousState = new MouseState(44,44, 0, ButtonState.Released, ButtonState.Released,
@@ -56,6 +56,13 @@ namespace GameContent.Test
 		{
 			region.state = -1;
 			Assert.That(region.GetSymbol(), Is.EqualTo("O"));
+		}
+
+		[Test()]
+		public void TestStringResponseForState0()
+		{
+			region.state = 0;
+			Assert.That(region.GetSymbol(), Is.EqualTo(""));
 		}
 	}
 }

@@ -11,10 +11,10 @@ namespace GameContent
 
 		public BoardStateManager()
 		{
-			playerState = 1;
+			BoardStateManager.playerState = 1;
 		}
 
-		public int ClickedRegion(Region[] regions, MouseState current, MouseState prev)
+		public static int ClickedRegion(Region[] regions, MouseState current, MouseState prev)
 		{
 			for (int i = 0; i < regions.Length; i++) {
 				if (Regions.Interactive.HasMouseClickedRegion(current, prev, regions[i].rect))
@@ -25,7 +25,7 @@ namespace GameContent
 			return -1;
 		}
 
-		public void UpdateClickedRegionState(Region[] regions, int idx) {
+		public static void UpdateClickedRegionState(Region[] regions, int idx) {
 			if (idx != -1) {
 				regions[idx].InteractWithRegionState();
 			}

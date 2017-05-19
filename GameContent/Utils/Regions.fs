@@ -20,3 +20,12 @@ module Interactive =
             true
         else
             false
+
+module State =
+    let GetStateString (state) : string =
+        if state = 1 then
+            "X"
+        elif state = -1 then
+            "O" 
+        else
+            ""

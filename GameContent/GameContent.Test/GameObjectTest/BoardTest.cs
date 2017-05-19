@@ -13,7 +13,7 @@ namespace GameContent.Test
 		[TestFixtureSetUp()]
 		public void BoardTestSetUp()
 		{
-			gameBoard = new Board();
+			gameBoard = new Board(null);
 		}
 
 		[Test()]

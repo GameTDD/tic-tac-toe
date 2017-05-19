@@ -16,12 +16,14 @@ namespace GameContent
 		public Color bgColor = Color.White;
 		GeneralAtributes gameAttributes;
 		Board board;
+		BoardStateManager stateManager;
 		SpriteFont font;
 
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
+			IsMouseVisible = true;
 		}
 
 		/// <summary>
@@ -35,6 +37,7 @@ namespace GameContent
 			// TODO: Add your initialization logic here
 			gameAttributes = new GeneralAtributes();
 			gameAttributes.GenerateTextures(graphics.GraphicsDevice);
+			stateManager = new BoardStateManager();
 			base.Initialize();
 		}
 
@@ -47,7 +50,7 @@ namespace GameContent
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			font = Content.Load<SpriteFont>("font");
-			board = new Board();
+			board = new Board(font);
 
 			//TODO: use this.Content to load your game content here 
 		}
@@ -67,7 +70,7 @@ namespace GameContent
 #endif
 
 			// TODO: Add your update logic here
-
+			board.Update(gameTime);
 			base.Update(gameTime);
 		}
 

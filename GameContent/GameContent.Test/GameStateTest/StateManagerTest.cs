@@ -17,7 +17,7 @@ namespace GameContent.Test
 		[TestFixtureSetUp()]
 		public void  StateManagerSetUp()
 		{
-			gameBoard = new Board();
+			gameBoard = new Board(null);
 			stateManager = new BoardStateManager();
 			currentState = new MouseState(250, 250, 0, ButtonState.Pressed, ButtonState.Released,
 					ButtonState.Released, ButtonState.Released, ButtonState.Released);
@@ -30,7 +30,7 @@ namespace GameContent.Test
 		public void TestIfTheRegionIsClicked()
 		{
 
-			Assert.That(stateManager.ClickedRegion(gameBoard.regions, currentState, 
+			Assert.That(BoardStateManager.ClickedRegion(gameBoard.regions, currentState, 
 			                                            previousState), Is.EqualTo(4));
 		}
 
@@ -39,7 +39,7 @@ namespace GameContent.Test
 		{
 			MouseState current = new MouseState(50, 50, 0, ButtonState.Pressed, ButtonState.Released,
 					ButtonState.Released, ButtonState.Released, ButtonState.Released);
-			Assert.That(stateManager.ClickedRegion(gameBoard.regions, current,
+			Assert.That(BoardStateManager.ClickedRegion(gameBoard.regions, current,
 												previousState), Is.EqualTo(-1));
 		}
 
@@ -48,15 +48,15 @@ namespace GameContent.Test
 		{
 			MouseState current = new MouseState(196, 101, 0, ButtonState.Pressed, ButtonState.Released,
 					ButtonState.Released, ButtonState.Released, ButtonState.Released);
-			Assert.That(stateManager.ClickedRegion(gameBoard.regions, current,
+			Assert.That(BoardStateManager.ClickedRegion(gameBoard.regions, current,
 										previousState), Is.EqualTo(-1));
 		}
 
 		[Test()]
 		public void TestIfClickedRegionHasChangedState()
 		{
-			int idx = stateManager.ClickedRegion(gameBoard.regions, currentState, previousState);
-			stateManager.UpdateClickedRegionState(gameBoard.regions, idx);
+			int idx = BoardStateManager.ClickedRegion(gameBoard.regions, currentState, previousState);
+			BoardStateManager.UpdateClickedRegionState(gameBoard.regions, idx);
 			Assert.That(gameBoard.regions[4].state, Is.EqualTo(1));
 		}
 

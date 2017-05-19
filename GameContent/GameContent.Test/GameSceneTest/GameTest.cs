@@ -21,11 +21,5 @@ namespace GameContent.Test
 		{
 			Assert.That(Color.White, Is.EqualTo(GeneralAtributes.BackgroungColor));
 		}
-
-		[Test()]
-		public void TestIfBoardIsWithCorrectSize() 
-		{ 
-			
-		}
 	}
 }
