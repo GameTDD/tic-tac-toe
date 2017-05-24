@@ -48,6 +48,7 @@
     <Compile Include="GameObjectTest\BoardTest.cs" />
     <Compile Include="GameStateTest\StateManagerTest.cs" />
     <Compile Include="GameObjectTest\RegionTest.cs" />
+    <Compile Include="GameStateTest\WinTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

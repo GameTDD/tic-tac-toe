@@ -54,6 +54,7 @@
     <Compile Include="Objects\Region.cs" />
     <Compile Include="Objects\Board.cs" />
     <Compile Include="StateManagers\BoardStateManager.cs" />
+    <Compile Include="StateManagers\WinStateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

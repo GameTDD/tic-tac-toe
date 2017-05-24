@@ -6,7 +6,7 @@ using Microsoft.FSharp.Core;
 
 namespace GameContent.Test
 {
-[TestFixture()]
+	[TestFixture()]
 	public class TestUtilsInput
 	{
 		MouseState mouseButtonState;
