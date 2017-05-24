@@ -33,11 +33,41 @@ namespace GameContent.Test
 		}
 
 		[Test()]
-		public void TestIfRowOneWins() 
+		public void TestIfRowOneWinsP1()
 		{
 			regions[0].state = 1;
 			regions[1].state = 1;
 			regions[2].state = 1;
+			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(1));
+		}
+
+		[Test()]
+		public void TestIfRowTwoWinsP2()
+		{
+			TestSetup();
+			regions[3].state = -1;
+			regions[4].state = -1;
+			regions[5].state = -1;
+			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(-1));
+		}
+
+		[Test()]
+		public void TestIfColOneWinsP1()
+		{
+			TestSetup();
+			regions[0].state = 1;
+			regions[3].state = 1;
+			regions[6].state = 1;
+			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(1));
+		}
+
+		[Test()]
+		public void TestIfColTwoWinsP2()
+		{
+			TestSetup();
+			regions[0].state = 1;
+			regions[3].state = 1;
+			regions[6].state = 1;
 			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(1));
 		}
 	}
