@@ -1,18 +1,15 @@
 ﻿using NUnit.Framework;
 using Microsoft.Xna.Framework.Input;
-using System;
-using GameContent;
-using Microsoft.FSharp.Core;
 
 namespace GameContent.Test
 {
-	[TestFixture()]
+	[TestFixture]
 	public class TestUtilsInput
 	{
 		MouseState mouseButtonState;
 		MouseState mousePreviousButtonState;
 
-		[TestFixtureSetUp()]
+		[TestFixtureSetUp]
 		public void TestSetup()
 		{
 			mouseButtonState = new MouseState(0,0, 0, ButtonState.Pressed, ButtonState.Released,
@@ -21,15 +18,15 @@ namespace GameContent.Test
 											 ButtonState.Released, ButtonState.Released, ButtonState.Released);	
 		}
 
-		[Test()]
+		[Test]
 		public void TesterShouldReturnTrueWhenIsBool()
 		{
-			MouseState auxPreviousButtonState = new MouseState(0,0, 0, ButtonState.Pressed, ButtonState.Released,
+			var auxPreviousButtonState = new MouseState(0,0, 0, ButtonState.Pressed, ButtonState.Released,
 											 ButtonState.Released, ButtonState.Released, ButtonState.Released);	
 			Assert.That(Handlers.Input.IsMousePressed(mouseButtonState, auxPreviousButtonState), Is.True);
 		}
 
-		[Test()]
+		[Test]
 		public void TestOnlyCurrentStateIsPressed()
 		{
 			Assert.That(Handlers.Input.IsMouseClick(mouseButtonState, mousePreviousButtonState), Is.True);

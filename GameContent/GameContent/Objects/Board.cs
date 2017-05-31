@@ -26,7 +26,7 @@ namespace GameContent
 			SetRegionsData();
 		}
 
-		private void SetLinesData() 
+		void SetLinesData() 
 		{
 			lines[0] = new Rectangle(195, 100, Thickness, Length);
 			lines[1] = new Rectangle(295, 100, Thickness, Length);
@@ -34,7 +34,7 @@ namespace GameContent
 			lines[3] = new Rectangle(100, 295, Length, Thickness);
 		}
 
-		private void SetRegionsData()
+		void SetRegionsData()
 		{
 			regions[0] = new Region(100, 100, 94, 94, font);
 			regions[1] = new Region(206, 100, 88, 94, font);
@@ -52,12 +52,12 @@ namespace GameContent
 			UpdateCLicks();
 		}
 
-		private void UpdateMouse() {
+		void UpdateMouse() {
 			previous = current;
 			current = Mouse.GetState();
 		}
 
-		private void UpdateCLicks()
+		void UpdateCLicks()
 		{
 			int idx = BoardStateManager.ClickedRegion(regions, current, previous);
 			BoardStateManager.UpdateClickedRegionState(regions, idx);

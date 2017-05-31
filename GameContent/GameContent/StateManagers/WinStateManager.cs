@@ -15,7 +15,11 @@ namespace GameContent
 			int col2 = CheckRowColWinner(new Region[] { regions[1], regions[4], regions[7] });
 			int col3 = CheckRowColWinner(new Region[] { regions[2], regions[5], regions[8] });
 
-			return DetermineWinner(DetermineHasWinner(row1, row2, row3), DetermineHasWinner(col1, col2, col3));
+			int dia1 = CheckRowColWinner(new Region[] { regions[0], regions[4], regions[8] });
+			int dia2 = CheckRowColWinner(new Region[] { regions[2], regions[4], regions[6] });
+
+			return DetermineWinner(DetermineWinner(row1, row2, row3), DetermineWinner(col1, col2, col3), 
+			                       DetermineWinner(dia1, dia2, 0));
 		}
 
 		private static int CheckRowColWinner(Region[] regions)
@@ -28,7 +32,7 @@ namespace GameContent
 			return 0;
 		}
 
-		private static int DetermineHasWinner(int a, int b, int c) 
+		private static int DetermineWinner(int a, int b, int c) 
 		{
 			if (a != 0)
 			{
@@ -38,14 +42,7 @@ namespace GameContent
 			{
 				return b;
 			}
-			else return c;
-		}
-
-		private static int DetermineWinner(int a, int b) {
-			if (a != 0) {
-				return a;
-			}
-			return b;
+			return c;
 		}
 	}
 }

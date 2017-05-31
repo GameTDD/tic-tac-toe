@@ -1,17 +1,13 @@
 ﻿using NUnit.Framework;
-using System;
-using GameContent;
-using Microsoft.Xna.Framework;
-using Microsoft.FSharp.Core;
 
 namespace GameContent.Test
 {
-	[TestFixture()]
+	[TestFixture]
 	public class WinTest
 	{
 		Region[] regions;
 
-		[TestFixtureSetUp()]
+		[TestFixtureSetUp]
 		public void TestSetup()
 		{
 			regions = new Region[9];
@@ -26,13 +22,13 @@ namespace GameContent.Test
 			regions[8] = new Region(306, 306, 94, 94, null);
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfAllRegions0ReturnsFalseForWin()
 		{
 			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(0));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfRowOneWinsP1()
 		{
 			regions[0].state = 1;
@@ -41,7 +37,7 @@ namespace GameContent.Test
 			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(1));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfRowTwoWinsP2()
 		{
 			TestSetup();
@@ -51,7 +47,7 @@ namespace GameContent.Test
 			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(-1));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfColOneWinsP1()
 		{
 			TestSetup();
@@ -61,14 +57,34 @@ namespace GameContent.Test
 			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(1));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfColTwoWinsP2()
 		{
 			TestSetup();
+			regions[1].state = -1;
+			regions[4].state = -1;
+			regions[7].state = -1;
+			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(-1));
+		}
+
+		[Test]
+		public void TestIfDiaOneWinsP1()
+		{
+			TestSetup();
 			regions[0].state = 1;
-			regions[3].state = 1;
-			regions[6].state = 1;
+			regions[4].state = 1;
+			regions[8].state = 1;
 			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(1));
+		}
+
+		[Test]
+		public void TestIfDiaTwoWinsP2()
+		{
+			TestSetup();
+			regions[2].state = -1;
+			regions[4].state = -1;
+			regions[6].state = -1;
+			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(-1));
 		}
 	}
 }

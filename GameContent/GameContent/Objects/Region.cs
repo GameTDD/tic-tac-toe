@@ -41,7 +41,7 @@ namespace GameContent
 
 		public string GetSymbol() 
 		{
-			return Regions.State.GetStateString(this.state);
+			return Regions.State.GetStateString(state);
 		}
 
 

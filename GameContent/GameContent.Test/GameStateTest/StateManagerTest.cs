@@ -1,20 +1,16 @@
 ﻿using NUnit.Framework;
-using System;
-using GameContent;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace GameContent.Test
 {
-	[TestFixture()]
+	[TestFixture]
 	public class StateManagerTest
 	{
 		Board gameBoard;
 		BoardStateManager stateManager;
 		MouseState currentState, previousState;
 
-		[TestFixtureSetUp()]
+		[TestFixtureSetUp]
 		public void  StateManagerSetUp()
 		{
 			gameBoard = new Board(null);
@@ -26,7 +22,7 @@ namespace GameContent.Test
 
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfTheRegionIsClicked()
 		{
 
@@ -34,34 +30,34 @@ namespace GameContent.Test
 			                                            previousState), Is.EqualTo(4));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfClickIsOutsideRegions()
 		{
-			MouseState current = new MouseState(50, 50, 0, ButtonState.Pressed, ButtonState.Released,
+			var current = new MouseState(50, 50, 0, ButtonState.Pressed, ButtonState.Released,
 					ButtonState.Released, ButtonState.Released, ButtonState.Released);
 			Assert.That(BoardStateManager.ClickedRegion(gameBoard.regions, current,
 												previousState), Is.EqualTo(-1));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfClickInLinesRetunsNegative()
 		{
-			MouseState current = new MouseState(196, 101, 0, ButtonState.Pressed, ButtonState.Released,
+			var current = new MouseState(196, 101, 0, ButtonState.Pressed, ButtonState.Released,
 					ButtonState.Released, ButtonState.Released, ButtonState.Released);
 			Assert.That(BoardStateManager.ClickedRegion(gameBoard.regions, current,
 										previousState), Is.EqualTo(-1));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfClickedRegionHasChangedState()
 		{
-			int idx = BoardStateManager.ClickedRegion(gameBoard.regions, currentState, previousState);
+			var idx = BoardStateManager.ClickedRegion(gameBoard.regions, currentState, previousState);
 			BoardStateManager.UpdateClickedRegionState(gameBoard.regions, idx);
 			Assert.That(gameBoard.regions[4].state, Is.EqualTo(1));
 		}
 
 		//This test is order dependent
-		[Test()]
+		[Test]
 		public void TestIfDifferentClickedRegionsHaveDiffStates() 
 		{
 			gameBoard.regions[3].InteractWithRegionState();
@@ -70,7 +66,7 @@ namespace GameContent.Test
 			Assert.That(gameBoard.regions[4].state, Is.EqualTo(1));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfPlayerStateUpdates() { 
 			BoardStateManager.playerState = 1;
 			BoardStateManager.UpdatePlayerState();

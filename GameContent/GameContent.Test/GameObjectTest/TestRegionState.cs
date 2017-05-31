@@ -1,18 +1,16 @@
 ﻿using NUnit.Framework;
-using GameContent;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace GameContent.Test
 {
-	[TestFixture()]
+	[TestFixture]
 	public class TestRegionState
 	{
 		Region region;
 		MouseState currentState;
 		MouseState previousState;
 
-		[TestFixtureSetUp()]
+		[TestFixtureSetUp]
 		public void SetUpRegion()
 		{ 
 			region = new Region(45, 45, 30, 30, null);
@@ -22,13 +20,13 @@ namespace GameContent.Test
 		 			 ButtonState.Released, ButtonState.Released, ButtonState.Released);
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfRegionIsCreatedWith0() 
 		{
 			Assert.That(region.state, Is.EqualTo(0));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfStateChangesTo1WhenClicked()
 		{
 			BoardStateManager.playerState = 1;
@@ -36,7 +34,7 @@ namespace GameContent.Test
 			Assert.That(region.state, Is.EqualTo(1));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfStateDoesNotCHangeWhenAlreadyClicked()
 		{
 			region.state = -1;
@@ -44,21 +42,21 @@ namespace GameContent.Test
 			Assert.That(region.state, Is.EqualTo(-1));
 		}
 
-		[Test()]
+		[Test]
 		public void TestStringResponseForState1()
 		{
 			region.state = 1;
 			Assert.That(region.GetSymbol(), Is.EqualTo("X"));
 		}
 
-		[Test()]
+		[Test]
 		public void TestStringResponseForStateMinus1()
 		{
 			region.state = -1;
 			Assert.That(region.GetSymbol(), Is.EqualTo("O"));
 		}
 
-		[Test()]
+		[Test]
 		public void TestStringResponseForState0()
 		{
 			region.state = 0;

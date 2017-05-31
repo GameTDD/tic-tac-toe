@@ -1,22 +1,20 @@
 ﻿using NUnit.Framework;
-using GameContent;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace GameContent.Test
 {
-	[TestFixture()]
+	[TestFixture]
 	public class BoardTest
 	{
 		Board gameBoard;
 
-		[TestFixtureSetUp()]
+		[TestFixtureSetUp]
 		public void BoardTestSetUp()
 		{
 			gameBoard = new Board(null);
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfBoardHasOnly4Lines() 
 		{
 			Assert.That(gameBoard.lines.Length, Is.EqualTo(4));
@@ -24,14 +22,14 @@ namespace GameContent.Test
 			Assert.That(gameBoard.lines.Length, Is.LessThan(5));
 		}
 
-		[Test()]
+		[Test]
 		public void TestThicknessAndLenght() 
 		{
 			Assert.That(gameBoard.Thickness, Is.EqualTo(10));
 			Assert.That(gameBoard.Length, Is.EqualTo(300));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfRectanglesPositionAreCorrect() 
 		{
 			Assert.That(gameBoard.lines[0].Location, Is.EqualTo(new Point(195, 100)));
@@ -40,7 +38,7 @@ namespace GameContent.Test
 			Assert.That(gameBoard.lines[3].Location, Is.EqualTo(new Point(100, 295)));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfRectanglesSizeAreCorrect()
 		{
 			Assert.That(gameBoard.lines[0].Size, Is.EqualTo(new Point(10, 300)));
@@ -49,13 +47,13 @@ namespace GameContent.Test
 			Assert.That(gameBoard.lines[3].Size, Is.EqualTo(new Point(300, 10)));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfBoardHas9Regions()
 		{
 			Assert.That(gameBoard.regions.Length, Is.EqualTo(9));
 		}
 
-		[Test()]
+		[Test]
 		public void TestIfCenterRegionOverlapsLines()
 		{
 			Assert.That(HasOverlap(gameBoard.regions[4].rect, gameBoard.lines), Is.False);
