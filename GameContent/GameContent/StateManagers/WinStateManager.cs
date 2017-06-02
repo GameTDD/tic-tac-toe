@@ -5,6 +5,15 @@ namespace GameContent
 {
 	public class WinStateManager
 	{
+		public static int PlayerWhoWon = 0;
+		public static string PlayerStr = "";
+
+		public static void Update(Region[] regions) 
+		{
+			PlayerWhoWon = PlayerWon(regions);
+			PlayerStr = UpdatePlayerStr();
+		}
+
 		public static int PlayerWon(Region[] regions) {
 
 			int row1 = CheckRowColWinner(new Region[] {regions[0], regions[1], regions[2] });
@@ -20,6 +29,19 @@ namespace GameContent
 
 			return DetermineWinner(DetermineWinner(row1, row2, row3), DetermineWinner(col1, col2, col3), 
 			                       DetermineWinner(dia1, dia2, 0));
+		}
+
+		public static string UpdatePlayerStr()
+		{
+			if (PlayerWhoWon == 1)
+			{
+				return "Player 1 Wins";
+			}
+			else if (PlayerWhoWon == -1) 
+			{
+				return "Player 2 Wins";
+			}
+			return "";
 		}
 
 		private static int CheckRowColWinner(Region[] regions)

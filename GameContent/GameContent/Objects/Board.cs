@@ -50,6 +50,7 @@ namespace GameContent
 		public void Update(GameTime time) {
 			UpdateMouse();
 			UpdateCLicks();
+			WinStateManager.Update(regions);
 		}
 
 		void UpdateMouse() {
@@ -59,8 +60,11 @@ namespace GameContent
 
 		void UpdateCLicks()
 		{
-			int idx = BoardStateManager.ClickedRegion(regions, current, previous);
-			BoardStateManager.UpdateClickedRegionState(regions, idx);
+			if (WinStateManager.PlayerWhoWon == 0)
+			{
+				int idx = BoardStateManager.ClickedRegion(regions, current, previous);
+				BoardStateManager.UpdateClickedRegionState(regions, idx);
+			}
 		}
 
 		public void Draw(SpriteBatch sb) 
@@ -70,6 +74,7 @@ namespace GameContent
 			sb.Draw(GeneralAtributes.LineTexture, lines[2], Color.Black);
 			sb.Draw(GeneralAtributes.LineTexture, lines[3], Color.Black);
 			DrawRegions(sb);
+			DrawWinner(sb);
 		}
 
 		public void DrawRegions(SpriteBatch sb) 
@@ -83,6 +88,12 @@ namespace GameContent
 			regions[6].Draw(sb); 
 			regions[7].Draw(sb); 
 			regions[8].Draw(sb);
+		}
+
+		public void DrawWinner(SpriteBatch sb)
+		{
+			sb.DrawString(regions[0].font, WinStateManager.PlayerStr, 
+			              new Vector2(400, 100), Color.DarkBlue);
 		}
 	}
 }

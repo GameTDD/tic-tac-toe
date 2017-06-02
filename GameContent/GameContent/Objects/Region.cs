@@ -11,7 +11,7 @@ namespace GameContent
 		public int state { get; set; }
 		public Vector2 StringPosition { get; set; }
 
-		SpriteFont font;
+		public SpriteFont font { get; set;}
 
 		public Region(int x, int y, int width, int height, SpriteFont font)
 		{

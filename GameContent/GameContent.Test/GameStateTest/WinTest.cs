@@ -86,5 +86,51 @@ namespace GameContent.Test
 			regions[6].state = -1;
 			Assert.That(WinStateManager.PlayerWon(regions), Is.EqualTo(-1));
 		}
+
+		[Test]
+		public void TestIfP1WinsOnGlobalVar()
+		{
+			TestSetup();
+			regions[0].state = 1;
+			regions[4].state = 1;
+			regions[8].state = 1;
+			WinStateManager.Update(regions);
+			Assert.That(WinStateManager.PlayerWhoWon, Is.EqualTo(1));
+		}
+
+		[Test]
+		public void TestIfNooneWins()
+		{
+			TestSetup();
+			Assert.That(WinStateManager.PlayerWhoWon, Is.EqualTo(0));
+		}
+
+		[Test]
+		public void TestIfNoWinnerIsEMptyStr()
+		{
+			Assert.That(WinStateManager.PlayerStr, Is.EqualTo(""));
+		}
+
+		[Test]
+		public void TestIfP1WinsStr()
+		{
+            TestSetup();
+			regions[0].state = 1;
+			regions[4].state = 1;
+			regions[8].state = 1;
+			WinStateManager.Update(regions);
+			Assert.That(WinStateManager.PlayerStr, Is.EqualTo("Player 1 Wins"));
+		}
+
+		[Test]
+		public void TestIfP2WinsStr()
+		{
+			TestSetup();
+			regions[0].state = -1;
+			regions[4].state = -1;
+			regions[8].state = -1;
+			WinStateManager.Update(regions);
+			Assert.That(WinStateManager.PlayerStr, Is.EqualTo("Player 2 Wins"));
+		}
 	}
 }
